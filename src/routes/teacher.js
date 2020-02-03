@@ -7,7 +7,9 @@ const {
 	getAllTeachers,
 	addTeacher,
 	updateTeacher,
-	deleteTeacher
+	deleteTeacher,
+	addCourse,
+	deleteCourse
 } = require("../controllers/teacher");
 
 router.get("/", getAllTeachers);
@@ -15,5 +17,7 @@ router.get("/:id", getTeacher);
 router.post("/", addTeacher);
 router.put("/:id", updateTeacher);
 router.delete("/:id", deleteTeacher);
+router.post("/:id/courses/:code", addCourse);
+router.delete("/:id/courses/:code", deleteCourse);
 
 module.exports = router;

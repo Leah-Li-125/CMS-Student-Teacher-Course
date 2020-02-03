@@ -22,7 +22,9 @@ const schema = new mongoose.Schema(
             when mongoose compiles object to json, will not select __v field.
             (when you dont use mongoose, the data you get from db is json. however, if you use mongoose to get data, the mongoose will transfer the json to a mongoose object and then transfer back to json, so using mongoose will be slower then directly get data from db. the advantage of using mongoose is you can use mongoose api like select)
             */
-		}
+		},
+		students: [{ type: mongoose.Schema.Types.ObjectId, ref: "Student" }],
+		teachers: [{ type: mongoose.Schema.Types.ObjectId, ref: "Teacher" }]
 	},
 	{
 		timestamps: true,
