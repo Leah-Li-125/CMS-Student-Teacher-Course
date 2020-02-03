@@ -27,8 +27,13 @@ async function getAllStudents(req, res) {
 
 async function getStudent(req, res) {
 	const { id } = req.params;
-	// const { fullName } = req.body;
-	// const student = await Student.findById(id);
+	/*
+	//to check whether you are admin in order to control that only admin can access to the populated courses data related to the student you request.
+	if (req.user.role === "admin"){
+		//you can do the populate below
+	}
+	//otherwise, you cant do the populate below
+	*/
 	const student = await Student.findById(id)
 		.populate("courses", "code name")
 		.exec();
