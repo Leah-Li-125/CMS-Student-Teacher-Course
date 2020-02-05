@@ -12,7 +12,7 @@ async function loginUser(req, res) {
 	//hash
 	//if validatePassword(password) verified successfully, it will return true
 	// (noted to use await because the method in schema is an async fn
-	if (await !existingUser.validatePassword(password)) {
+	if (!(await existingUser.validatePassword(password))) {
 		return res.status(401).json("Invalid username or password");
 	}
 
